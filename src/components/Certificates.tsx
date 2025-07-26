@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Award, Calendar } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,76 +14,76 @@ const Certificates = () => {
       title: "Compsigala",
       issuer: "PUFA COMPUTER SCIENCE",
       date: "June 2025",
-      image: "src/assets/compsigala.png",
-      featured: true
+      image: "/icons/compsigala.png",
+      featured: true,
     },
     {
       id: 2,
       title: "Planning a Machine Learning Project",
       issuer: "Amazon Web Services",
       date: "April 2025",
-      image: "src/assets/sertif aws.png",
-      featured: true
+      image: "/icons/sertif-aws.png",
+      featured: true,
     },
     {
       id: 3,
-      title: " Machine Learning Essentials for Business and Technical Decision Makers",
+      title: "Machine Learning Essentials for Business and Technical Decision Makers",
       issuer: "Amazon Web Services",
       date: "April 2025",
-      image: "src/assets/sertif Machine Learning.png",
-      featured: true
+      image: "/icons/sertif-machine-learning.png",
+      featured: true,
     },
     {
       id: 4,
-      title: "Volunteer PIC - Sosial Media Division ",
+      title: "Volunteer PIC - Social Media Division",
       issuer: "SetSail BizAccel",
-      date: "february 2025 - may 2025",
-      image: "src/assets/picsosmed.jpg",
-      featured: true
+      date: "February 2025 - May 2025",
+      image: "/icons/picsosmed.jpg",
+      featured: true,
     },
     {
       id: 5,
       title: "CSGO 2025",
-      issuer: "PUFA COMPUTER SCIENCE ",
+      issuer: "PUFA COMPUTER SCIENCE",
       date: "November 2024 - February 2025",
-      image: "src/assets/csgo.png",
-      featured: false
+      image: "/icons/csgo.png",
+      featured: false,
     },
     {
       id: 6,
-      title: "Compcrusader Gemastik in the UX Design Division ",
+      title: "Compcrusader Gemastik - UX Design Division",
       issuer: "PUFA COMPUTER SCIENCE",
       date: "October 2024",
-      image: "src/assets/gemestik_page-0001.jpg",
-      featured: false
+      image: "/icons/gemestik-page-0001.jpg",
+      featured: false,
     },
     {
       id: 7,
-      title: "Power BI ",
+      title: "Power BI",
       issuer: "PUMA BUSINESS ADMINISTRATION",
       date: "July 2024",
-      image: "src/assets/powerbi.jpg",
-      featured: false
+      image: "/icons/powerbi.jpg",
+      featured: false,
     },
     {
       id: 8,
       title: "Economic Survival Business Project Exhibition",
       issuer: "President University",
       date: "May 2024",
-      image: "src/assets/exhibition.png",
-      featured: false
+      image: "/icons/exhibition.png",
+      featured: false,
     },
     {
       id: 9,
-      title: "Internship Experience at Setsail BizAccel",
-      issuer: "SetSail BIzAccel",
-      date: "May 2024September 2023 - April 2024",
-      image: "src/assets/webdev.png",
-      featured: false
-    }
+      title: "Internship Experience at SetSail BizAccel",
+      issuer: "SetSail BizAccel",
+      date: "September 2023 - April 2024",
+      image: "/icons/webdev.png",
+      featured: false,
+    },
   ];
 
-  const displayedCertificates = showMore ? certificates : certificates.filter(cert => cert.featured);
+  const displayedCertificates = showMore ? certificates : certificates.filter((cert) => cert.featured);
 
   return (
     <section id="certificates" className="py-20 bg-secondary/30">
@@ -101,7 +103,7 @@ const Certificates = () => {
             <Card key={cert.id} className="group hover-glow bg-card border-border overflow-hidden">
               {/* Certificate Image */}
               <div className="relative overflow-hidden">
-                <img 
+                <img
                   src={cert.image}
                   alt={cert.title}
                   className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
@@ -121,7 +123,6 @@ const Certificates = () => {
                     </h3>
                     <p className="text-primary text-xs font-medium">{cert.issuer}</p>
                   </div>
-
                   <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <Calendar className="w-3 h-3" />
                     {cert.date}
@@ -134,7 +135,7 @@ const Certificates = () => {
 
         {/* Show More/Less Button */}
         <div className="text-center">
-          <Button 
+          <Button
             onClick={() => setShowMore(!showMore)}
             variant="outline"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"

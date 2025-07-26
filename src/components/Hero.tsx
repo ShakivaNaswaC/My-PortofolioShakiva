@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profileImage from '@/assets/profile-hero.jpg';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -38,10 +37,10 @@ const Hero = () => {
   }, [displayText, isTyping, currentRole, roles]);
 
   const handleDownloadCV = () => {
-    // Create a sample PDF download
+    // Create a PDF download - file harus ada di public folder
     const link = document.createElement('a');
-    link.href = '/transkip nilai shakiva.pdf'; // You'll need to add this file to public folder
-    link.download = 'Shakiva-transkip nilai.pdf';
+    link.href = '/transkip nilai shakiva.pdf'; // Updated path - file harus ada di public/gemestik.pdf
+    link.download = 'Shakiva-transkipnilai.pdf';
     link.click();
   };
 
@@ -119,8 +118,8 @@ const Hero = () => {
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-primary p-1 hover:shadow-primary transition-all duration-300">
                 <div className="w-full h-full rounded-full bg-card overflow-hidden">
                   <img
-                    src="src/assets/Group 2.png"
-                    alt="Profile"
+                    src="/icons/Group 2.png"
+                    alt="Shakiva Naswa Crescensia Profile"
                     className="w-full h-full object-cover"
                   />
                 </div>

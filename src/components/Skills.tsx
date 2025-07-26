@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface TechItem {
@@ -27,7 +26,7 @@ const TechnicalSkills = () => {
     {
       title: "Design & UI/UX",
       items: [
-        { name: "Figma", icon: "src/assets/figma.png", color: "#F24E1E" }
+        { name: "Figma", icon: "/icons/figma.png", color: "#F24E1E" }
       ],
       details: {
         card1: {
@@ -51,12 +50,12 @@ const TechnicalSkills = () => {
     {
       title: "Frontend Development",
       items: [
-        { name: "HTML", icon: "src/assets/html.png", color: "#E34F26" },
-        { name: "CSS", icon: "src/assets/css.png", color: "#1572B6" },
-        { name: "JavaScript", icon: "src/assets/js.png", color: "#F7DF1E" },
-        { name: "React JS", icon: "src/assets/react.png", color: "#61DAFB" },
-        { name: "Next.JS", icon: "src/assets/nextjs.png", color: "#000000" },
-        { name: "Tailwind CSS", icon: "src/assets/tailwindcss.png", color: "#06B6D4" }
+        { name: "HTML", icon: "/icons/html.png", color: "#E34F26" },
+        { name: "CSS", icon: "/icons/css.png", color: "#1572B6" },
+        { name: "JavaScript", icon: "/icons/js.png", color: "#F7DF1E" },
+        { name: "React JS", icon: "/icons/react.png", color: "#61DAFB" },
+        { name: "Next.JS", icon: "/icons/nextjs.png", color: "#000000" },
+        { name: "Tailwind CSS", icon: "/icons/tailwindcss.png", color: "#06B6D4" }
       ],
       details: {
         card1: {
@@ -69,7 +68,7 @@ const TechnicalSkills = () => {
         },
         card3: {
           title: "CSS Frameworks",
-          items: ["Tailwind CSS", "CSS Modules", ]
+          items: ["Tailwind CSS", "CSS Modules"]
         },
         card4: {
           title: "Responsive Design",
@@ -80,10 +79,10 @@ const TechnicalSkills = () => {
     {
       title: "Backend Development", 
       items: [
-        { name: "Django", icon: "src/assets/django.png", color: "#092E20" },
-        { name: "Python", icon: "src/assets/python.png", color: "#3776AB" },
-        { name: "Java", icon: "src/assets/java.png", color: "#ED8B00" },
-        { name: "PHP", icon: "src/assets/php.png", color: "#777BB4" }
+        { name: "Django", icon: "/icons/django.png", color: "#092E20" },
+        { name: "Python", icon: "/icons/python.png", color: "#3776AB" },
+        { name: "Java", icon: "/icons/java.png", color: "#ED8B00" },
+        { name: "PHP", icon: "/icons/php.png", color: "#777BB4" }
       ],
       details: {
         card1: {
@@ -107,8 +106,8 @@ const TechnicalSkills = () => {
     {
       title: "Database",
       items: [
-        { name: "PostgreSQL", icon: "src/assets/postgresql.png", color: "#336791" },
-        { name: "MySQL", icon: "src/assets/mysql.png", color: "#4479A1" }
+        { name: "PostgreSQL", icon: "/icons/postgresql.png", color: "#336791" },
+        { name: "MySQL", icon: "/icons/mysql.png", color: "#4479A1" }
       ],
       details: {
         card1: {
@@ -132,9 +131,9 @@ const TechnicalSkills = () => {
     {
       title: "Data Analyst & Machine Learning",
       items: [
-        { name: "Pandas", icon: "src/assets/pandas.png", color: "#150458" },
-        { name: "Scikit-learn", icon: "src/assets/scikit-learn.png", color: "#F7931E" },
-        { name: "Power BI", icon: "src/assets/power bi.png", color: "#F2C811" }
+        { name: "Pandas", icon: "/icons/pandas.png", color: "#150458" },
+        { name: "Scikit-learn", icon: "/icons/scikit-learn.png", color: "#F7931E" },
+        { name: "Power BI", icon: "/icons/power-bi.png", color: "#F2C811" }
       ],
       details: {
         card1: {
@@ -162,8 +161,8 @@ const TechnicalSkills = () => {
   };
 
   const DetailCard: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
-    <div className="bg-background rounded-xl p-6 shadow-lg border border-border">
-      <h4 className="text-primary font-semibold text-lg mb-4">{title}</h4>
+    <div className="bg-card rounded-xl p-6 shadow-lg border border-border">
+      <h4 className="text-card-foreground font-semibold text-lg mb-4">{title}</h4>
       <ul className="space-y-3">
         {items.map((item, index) => (
           <li key={index} className="text-muted-foreground flex items-start text-sm">
@@ -212,16 +211,19 @@ const TechnicalSkills = () => {
                 {section.items.map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-center gap-3 bg-background px-5 py-3 rounded-xl hover:shadow-lg transition-all duration-200 hover:bg-background/80 border border-border"
+                    className="flex items-center gap-3 bg-card px-5 py-3 rounded-xl hover:shadow-lg transition-all duration-200 hover:bg-card/80 border border-border"
                   >
                     <div className="w-8 h-8 flex items-center justify-center">
                       <img 
                         src={item.icon} 
-                        alt={item.name}
+                        alt={`${item.name} icon`}
                         className="max-w-full max-h-full object-contain"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
                       />
                     </div>
-                    <span className="text-foreground font-medium text-sm">
+                    <span className="text-card-foreground font-medium text-sm">
                       {item.name}
                     </span>
                   </div>
@@ -244,7 +246,6 @@ const TechnicalSkills = () => {
                   )}
                 </div>
               )}
-
             </div>
           ))}
         </div>
