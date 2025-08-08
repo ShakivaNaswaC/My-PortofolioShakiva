@@ -105,7 +105,7 @@ const Hero = () => {
                   View Transkip Nilai
                 </Button>
                 <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  <a href="#project" className="flex items-center">
+                  <a href="#projects" className="flex items-center">
                     View Project
                   </a>
                 </Button>
