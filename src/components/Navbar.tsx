@@ -28,30 +28,25 @@ const Navbar = () => {
   const navItems = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#skills', label: 'Skills' }, // Ensure 'Skills' link points to the correct section
     { href: '#contact', label: 'Contact' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20 ${
-      isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20 ${isScrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-4 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <div className="text-2xl font-bold text-gradient">
+            {/* Optional Logo or Title */}
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors relative group"
-              >
+              <a key={item.href} href={item.href} className="text-foreground hover:text-primary transition-colors relative group">
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
@@ -88,12 +83,7 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                  <a key={item.href} href={item.href} className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
                     {item.label}
                   </a>
                 ))}
