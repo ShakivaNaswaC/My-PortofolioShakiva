@@ -9,7 +9,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/ShakivaNaswaC', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/shakiva-naswa-crescensia-4b33b0200/', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:your.shakivanc@gmail.com', label: 'Email' },
+    { icon: Mail, href: 'mailto:your.shakiva.crescensia@student.president.ac.id', label: 'Email' },
   ];
 
   const quickLinks = [
@@ -71,7 +71,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">Get In Touch</h3>
             <div className="space-y-2 text-muted-foreground">
-              <p>shakivanc@gmail.com</p>
+              <p>shakiva.crescensia@student.president.ac.id</p>
               <p>+62 812-3525-2585</p>
               <p>Cikarang, West Java</p>
             </div>
