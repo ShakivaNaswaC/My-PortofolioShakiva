@@ -113,8 +113,6 @@ const ProjectImageSlider = ({ images, title, autoSlide = true, slideInterval = 3
 };
 
 const Projects = () => {
-  const [showAll, setShowAll] = useState(false);
-
   const projects = [
     {
       id: 1,
@@ -133,7 +131,6 @@ const Projects = () => {
       images: ["/icons/student1.png", "/icons/student3.png"],
       technologies: ["Django", "HTML", "CSS", "PostgreSQL", "Machine Learning"],
       liveUrl: "https://drive.google.com/drive/folders/1eovUtK3Z5_Wnzhwzr65GiZQ8UU74eiFg",
-      githubUrl: "https://github.com/yourusername/task-manager",
       featured: true,
     },
     {
@@ -181,10 +178,13 @@ const Projects = () => {
     },
   ];
 
-  const displayedProjects = showAll ? projects : projects.filter((p) => p.featured);
-
   const isFigmaProject = (project: any) =>
     project.technologies.some((tech: string) => tech.toLowerCase().includes("figma"));
+
+  const isStudentProject = (title: string) =>
+    title.toLowerCase().includes("student analysis dashboard web");
+
+  const displayedProjects = projects;
 
   return (
     <section id="projects" className="py-20">
@@ -217,11 +217,11 @@ const Projects = () => {
                         <Button size="sm" variant="secondary" asChild>
                           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                             <Eye className="w-4 h-4 mr-2" />
-                            Live Demo
+                            {isStudentProject(project.title) ? 'Video Demo' : 'Live Demo'}
                           </a>
                         </Button>
                       )}
-                      {project.githubUrl && (
+                      {!isStudentProject(project.title) && project.githubUrl && (
                         <Button size="sm" variant="outline" asChild>
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                             <Github className="w-4 h-4 mr-2" />
@@ -263,11 +263,11 @@ const Projects = () => {
                           <Button size="sm" className="flex-1" asChild>
                             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                               <ExternalLink className="w-4 h-4 mr-2" />
-                              Live Demo
+                              {isStudentProject(project.title) ? 'Video Demo' : 'Live Demo'}
                             </a>
                           </Button>
                         )}
-                        {project.githubUrl && (
+                        {!isStudentProject(project.title) && project.githubUrl && (
                           <Button size="sm" variant="outline" asChild>
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                               <Github className="w-4 h-4" />
@@ -281,16 +281,6 @@ const Projects = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button
-            onClick={() => setShowAll(!showAll)}
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-          >
-            {showAll ? 'Show Less Projects' : 'View All Projects'}
-          </Button>
         </div>
       </div>
     </section>
