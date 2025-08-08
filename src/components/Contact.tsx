@@ -13,8 +13,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "shakivanc@gmail.com",
-      href: "mailto:shakivanc@gmail.com",
+      value: "shakiva.crescensia@student.president.ac.id",
+      href: "mailto:shakiva.crescensia@student.president.ac.id",
       colorClass: "contact-email"
     },
     {
